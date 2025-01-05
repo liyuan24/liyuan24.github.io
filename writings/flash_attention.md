@@ -1,6 +1,6 @@
 # Flash Attention
 
-The full Numpy implementation code could be found at https://github.com/liyuan24/fastAttention
+The full Numpy implementation code could be found at my github repo [fastAttention](https://github.com/liyuan24/fastAttention).
 
 [Flash Attention](https://arxiv.org/abs/2205.14135) is a faster way to compute attention operation. For what attention is, please refer to the Transformer paper [Attention is All You Need](https://arxiv.org/abs/1706.03762). Flash Attention is building on top of a 2018 paper [Online normalizer calculation for softmax](https://arxiv.org/abs/1805.02867) which discussed about how to compute softmax in online fashion to reduce the number of memory access between Chip and Memory. For GPU, it is between Chip SRAM and High Bandwidth Memory (HBM).
 
