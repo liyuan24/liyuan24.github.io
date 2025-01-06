@@ -1,0 +1,18 @@
+---
+layout: default
+---
+{{ content }}
+
+<script>
+  // Add timestamp to the existing header
+  document.addEventListener('DOMContentLoaded', function() {
+    const header = document.querySelector('.project-tagline');
+    if (header) {
+      const timestamp = document.createElement('div');
+      timestamp.style.fontSize = '1rem';
+      timestamp.style.marginTop = '10px';
+      timestamp.innerHTML = 'Posted on {{ page.date | date: "%B %-d, %Y" }}';
+      header.appendChild(timestamp);
+    }
+  });
+</script>
