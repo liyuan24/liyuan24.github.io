@@ -2,6 +2,7 @@
 layout: post 
 title: Flash Attention
 date: 2025-01-04
+excerpt: Flash Attention is a faster way to compute attention operation...
 ---
 
 # Flash Attention
