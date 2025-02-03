@@ -23,6 +23,12 @@ The below figure is the training loss and validation loss with different batch s
 
 ![val_loss_grad_accum](https://raw.githubusercontent.com/liyuan24/liyuan24.github.io/refs/heads/main/assets/2025_02_02_what_i_learn_from_build_deepseek_v2/val_loss_grad_accum.png)
 
+The training loss can be further improved by increasing the gradient accumulation steps rom 4 to 8. The below figure is the training loss and validation loss with gradient accumulation steps of 8.
+
+![training_loss_grad_accum_8](https://raw.githubusercontent.com/liyuan24/liyuan24.github.io/refs/heads/main/assets/2025_02_02_what_i_learn_from_build_deepseek_v2/training_loss_grad_accum_8.png)
+
+![val_loss_grad_accum_8](https://raw.githubusercontent.com/liyuan24/liyuan24.github.io/refs/heads/main/assets/2025_02_02_what_i_learn_from_build_deepseek_v2/val_loss_grad_accum_8.png)
+
 The gradient accumulation can be used when you want to increase the batch size, but the GPU memory is not enough. It will accumulate the gradient across multiple steps and then update the model parameters. The code is very simple
 
 ```python
