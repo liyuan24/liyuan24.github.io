@@ -48,3 +48,14 @@ optimizer.step()
 optimizer.zero_grad(set_to_none=True)
 ```
 
+# Gradient Norm Clip Can Speed Up Training
+
+After using the gradient norm clip at `1.0`, the training speed is significantly improved.
+
+![training_loss_grad_norm_clip](https://raw.githubusercontent.com/liyuan24/liyuan24.github.io/refs/heads/main/assets/2025_02_02_what_i_learn_from_build_deepseek_v2/grad_norm_clip.png)
+
+```python
+if args.grad_clip > 0:
+    torch.nn.utils.clip_grad_norm_(model.parameters(), args.grad_clip)
+```
+
