@@ -2,7 +2,7 @@
 layout: post 
 title: 8-bit Optimizer
 date: 2025-02-05
-excerpt: ...
+excerpt: Make the training memory usage much less...
 ---
 
 # Problem Statement
@@ -98,20 +98,6 @@ Each block will be processed by 1 thread of GPU. And that is why this is highly 
 8. Finally, the quantized state values are stored back to the global memory, shown [here](https://github.com/bitsandbytes-foundation/bitsandbytes/blob/main/csrc/kernels.cu#L1829-L1833)
 
 As an exercise, I followed the code and make it more readable. You can check it out at my [cuda101](https://github.com/liyuan24/cuda101/blob/main/8bit_optimizer/adamw.cu).
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # References
 
