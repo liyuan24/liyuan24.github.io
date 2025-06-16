@@ -5,6 +5,8 @@ date: 2025-06-11
 excerpt: Use more inference time compute to get the better performance...
 ---
 
+updated[2025-06-15]: added Least-to-Most Prompting[5]
+
 # Inference Time Compute
 
 In this blog, I am going to talk about using more inference time compute to get the better performance. There is no post-training or fine-tuning involved, only prompting.
@@ -65,6 +67,35 @@ This is very clear, more reasoning paths, more inference time compute.
 ## Evaluation
 
 The same benchmarks as CoT are used.
+
+# Least-to-Most Prompting[5]
+Least-to-Most prompting is a multi-stage prompting method. In the first stage, the problem will be prompted to be decomposed into sub-problems. In the second stage, the sub-problems will be solved one by one sequentially with the answers to the previous sub-problems in the context of the next sub-problem.
+
+## Motivation
+
+CoT doesn't generalize well from simple problem to hard problem. For example in the last letter concatenation problem, the CoT can do well when the test list length is the same as the few-shot examples list length. But when the test list length is longer, the performance drops.
+
+## Prompt examples
+
+This example is from [learnprompting.org](https://learnprompting.org/docs/intermediate/least_to_most)
+
+```
+Q: think, machine
+A: The last letter of "think" is "k". The last letter of "machine" is "e". Concatenating "k" and "e" gives "ke". So "think, machine" output "ke".
+
+Q: think, machine, learning
+A: "think, machine" outputs "ke". The last letter of "learning" is "g". Concatenating "ke" and "g" gives "keg". So "think, machine, learning" is "keg".
+
+Q: transformer, language
+A: The last letter of "transformer" is "r". The last letter of "language" is "e". Concatenating "r" and "e" gives "re". So "transformer, language" is "re".
+
+Q: transformer, language, vision
+A: "transformer, language" outputs "re". The last letter of "vision" is "n". Concatenating "re" and "n" gives "ren". So "transformer, language, vision" is "ren".
+
+Q: foo,bar,baz,blip,learn,prompting,world,shaking,event,dancefloor,prisma,giraffe
+A:
+```
+
 
 # ReAct[3]
 
@@ -199,3 +230,14 @@ They increase the performance with more inference time compute by searching over
       primaryClass={cs.LG},
       url={https://arxiv.org/abs/2409.03733}, 
 }
+
+\[5\]: @misc{zhou2023leasttomostpromptingenablescomplex,
+      title={Least-to-Most Prompting Enables Complex Reasoning in Large Language Models}, 
+      author={Denny Zhou and Nathanael Schärli and Le Hou and Jason Wei and Nathan Scales and Xuezhi Wang and Dale Schuurmans and Claire Cui and Olivier Bousquet and Quoc Le and Ed Chi},
+      year={2023},
+      eprint={2205.10625},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2205.10625}, 
+}
+
