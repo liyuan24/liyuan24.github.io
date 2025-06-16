@@ -96,6 +96,10 @@ Q: foo,bar,baz,blip,learn,prompting,world,shaking,event,dancefloor,prisma,giraff
 A:
 ```
 
+## Limitation
+
+As mentioned in the paper, how to prompt the LLM to decompose the problem into sub-problems is specific to the problem.
+
 
 # ReAct[3]
 
